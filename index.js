@@ -2,8 +2,6 @@ const fs = require('fs')
 const inquirer = require('inquirer')
 
 
-
-
   inquirer.prompt([
     {
       type: 'input',
@@ -48,36 +46,35 @@ const inquirer = require('inquirer')
     .then(res => {
       console.log(res)
       let body = `
-      # ${res.title}
+# ${res.title}
 
-      ## Description:
-      ${res.description}
+## Description:
+${res.description}
 
-      ## Table of Contents:
-      [Usage]()
-      [Contributing]()
-      [Install Instructions]()
-      [Tests]()
+## Table of Contents:
+- [Usage](#installation)
+- [Contributing](#usage)
+- [Install Instructions](#install-instructions)
+- [Tests](#tests)
 
+## Installation
+${res.install_instructions}
 
-      ## Installation
-      ${res.install_instructions}
+## Usage:
+${res.usage}
 
-      ## Usage:
-      ${res.usage}
+## Contributing:
+${res.contribution}
 
-      ## Contributing:
-      ${res.contribution}
-
-      ## Tests:
-      ${res.test}
+## Tests:
+${res.test}
 
       
-      ## Questions?
-      [My GitHub](https://github.com/${res.username})
-      [My Email](mailto: ${res.email})
-      `
-      fs.writeFile('newREADME.md', body, err => {
+## Questions?
+[My GitHub](https://github.com/${res.username})
+[My Email](mailto:${res.email})
+`
+      fs.writeFile('NEWREADME.md', body, err => {
         if (err) {console.log(err)}
         console.log(body)
       })
