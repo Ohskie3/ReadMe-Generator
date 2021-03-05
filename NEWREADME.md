@@ -1,9 +1,9 @@
 
-# test
+# README Generator
 ![license](https://img.shields.io/badge/license-Community-brightgreen)
 
 ## Description:
-test
+Input items to create a README file for your project
 
 ## Table of Contents:
 - [Usage](#installation)
@@ -14,20 +14,20 @@ test
 - [License](#license)
 
 ## Installation
-test
+Make sure npm inquirer is installed
 
 ## Usage:
-test
+It is used to create a README file for your project
 
 ## Contributing:
-test
+Make sure everything is spelled correctly
 
 ## Tests:
-tes
+None
 
 ## Questions?
-[My GitHub](https://github.com/test)
-[My Email](mailto:tes)
+[My GitHub](https://github.com/Ohskie3)
+[My Email](mailto:kyleohlwiler@gmail.com)
 
 ## License:
 Community
