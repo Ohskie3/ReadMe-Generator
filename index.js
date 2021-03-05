@@ -72,7 +72,6 @@ ${res.contribution}
 ## Tests:
 ${res.test}
 
-      
 ## Questions?
 [My GitHub](https://github.com/${res.username})
 [My Email](mailto:${res.email})
@@ -770,7 +769,6 @@ notice like this when it starts in an interactive mode:
         fs.appendFile('NEWREADME.md', 'This is a community file', err => {
           if (err) { console.log(err) }
         })
-        
       } else if (res.license ==='MIT') {
         fs.appendFile('NEWREADME.md', mit, err => {
           if (err) { console.log(err) }
