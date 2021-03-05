@@ -1,56 +1,9 @@
-const fs = require('fs')
-const inquirer = require('inquirer')
 
-
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'title',
-      message: 'What is the title of your project?'
-    }, {
-      type: 'text',
-      name: 'description',
-      message: 'Describe your application'
-    }, {
-      type: 'text',
-      name: 'install_instructions',
-      message: 'What instructions are needed to install?'
-    }, {
-      type: 'text',
-      name: 'usage',
-      message: 'What is your app used for?'
-    }, {
-      type: 'text',
-      name: 'contribution',
-      message: 'What are your contribution guidelines?'
-    }, {
-      type: 'text',
-      name: 'test',
-      message: 'What test instructions do you have?'
-    },
-    {
-      type: 'list',
-      name: 'license',
-      message: 'Choose a license you will be using',
-      choices: ['Community', 'MIT', 'GNUGPLv3']
-    }, {
-      type: 'text',
-      name: 'username',
-      message: 'What is your GitHub username?'
-    }, {
-      type: 'text',
-      name: 'email',
-      message: 'What is your email'
-    }
-  ])
-    .then(res => {
-      // console.log(res)
-      let body = `
-# ${res.title}
-![license](https://img.shields.io/badge/license-${res.license}-brightgreen)
+# test
+![license](https://img.shields.io/badge/license-GNUGPLv3-brightgreen)
 
 ## Description:
-${res.description}
+test
 
 ## Table of Contents:
 - [Usage](#installation)
@@ -58,53 +11,28 @@ ${res.description}
 - [Install Instructions](#install-instructions)
 - [Tests](#tests)
 - [Questions](#questions)
-- [License](#license)
 
 ## Installation
-${res.install_instructions}
+test
 
 ## Usage:
-${res.usage}
+test
 
 ## Contributing:
-${res.contribution}
+test
 
 ## Tests:
-${res.test}
+test
 
       
 ## Questions?
-[My GitHub](https://github.com/${res.username})
-[My Email](mailto:${res.email})
+[My GitHub](https://github.com/kyle)
+[My Email](mailto:test)
 
 ## License:
-${res.license}
+GNUGPLv3
 
-`
-let mit = `
-MIT License
 
-Copyright (c) [year] [fullname]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-`
-let gnu = `
        GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -761,24 +689,3 @@ notice like this when it starts in an interactive mode:
 
     <program>  Copyright (C) <year>  <name of author>
     
-`
-      fs.writeFile('NEWREADME.md', body, err => {
-        if (err) {console.log(err)}
-        // console.log(body)
-      })
-      if (res.license ==='Community') {
-        fs.appendFile('NEWREADME.md', 'This is a community file', err => {
-          if (err) { console.log(err) }
-        })
-        
-      } else if (res.license ==='MIT') {
-        fs.appendFile('NEWREADME.md', mit, err => {
-          if (err) { console.log(err) }
-        })
-      } else {
-        fs.appendFile('NEWREADME.md', gnu, err => {
-          if (err) { console.log(err) }
-        })
-      }
-    })
-    .catch(err => console.log(err))
